@@ -1,0 +1,36 @@
+Hi Franco,
+
+I send you below the test that I mentioned in the call. The idea of ​​this test is to know your abilities to solve problems, and if they fit with the ones we require for the position and in the work team.
+
+You will see that it is not difficult, and that the fundamental idea is that you can express all your knowledge and skills as a developer. 
+
+Deadline: 20/07
+
+Build an endpoint that returns an array with the last 10 tweets of a twitter account, respecting the following format: 
+ 
+{
+	"created_at": "Mon Jun 25 16:03:38 +0000 2018",
+	"text": "esto es un tweet",
+	"in_reply": {
+		"id": 123465,
+		"name": "john doe"
+	}
+}
+
+Parametros:
+
+created_at : obligatorio
+text: obligatorio
+in_reply: si fuese una respuesta a otro usuario.
+
+Conditions
+The project should be developed using PHP 5.4+
+If necessary, you can use any web framework of your choice, We recommend SlimPHP
+You can use the data store solution of your choice if you need one
+The full project should be correctly revisioned using GIT. That GIT repository should be accesible by us (publicly or privately) on GitHub or BitBucket.
+You don't need to serve the project to the internet but it should be testeable locally using the php built-in webserver or similar solution with the proper documentation on how to do it
+Unit Tests are a big plus!
+All added value you can give to the original idea is highly appreciated
+Have Fun!
+
+Thank you, good luck. 
