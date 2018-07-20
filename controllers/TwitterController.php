@@ -29,23 +29,30 @@
             $json = json_decode($jsonraw);
             $jsonItems = count($json);
             
-            for($i=0; $i<$jsonItems; $i++){
-                $user = $json[$i];
-                $dateTweet = $user->created_at;
-                $tweet = $user->text;
-                
-                $in_reply =  array (
-                    'id' => $user->in_reply_to_user_id,
-                    'name' => $user->in_reply_to_screen_name
-                );
-    
-                $rawdata[$i]["created_at"]=$dateTweet;
-                $rawdata[$i]["text"]=$tweet;
-                if (!is_null($in_reply['id'])){
-                    $rawdata[$i]["in_reply"] = $in_reply;
-                }   
+            if(empty($jsonItems)){
+                return '{"message": {"text":"there is no data with that user"}';
             }
-            return $rawdata;
+            else{
+
+                for($i=0; $i<$jsonItems; $i++){
+                    $user = $json[$i];
+                    $dateTweet = $user->created_at;
+                    $tweet = $user->text;
+                    
+                    $in_reply =  array (
+                        'id' => $user->in_reply_to_user_id,
+                        'name' => $user->in_reply_to_screen_name
+                    );
+        
+                    $rawdata[$i]["created_at"]=$dateTweet;
+                    $rawdata[$i]["text"]=$tweet;
+                    if (!is_null($in_reply['id'])){
+                        $rawdata[$i]["in_reply"] = $in_reply;
+                    }   
+                }
+                return $rawdata;
+
+            }
         }
     }
 
