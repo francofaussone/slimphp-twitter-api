@@ -3,12 +3,14 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 //Get all Tweets
-$app->get('/api/tweets', function(Request $request, Response $response){
+$app->get('/api/tweets/{nom}', function(Request $request, Response $response){
     
-    try{
-        $apitwitter = new Twitter();
+    $nom = $request->getAttribute('nom');
 
-        $json =  $apitwitter->getTweets("aguchaves");
+    try{
+        $apitwitter = new TwitterController();
+
+        $json =  $apitwitter->getTweets($nom);
         $rawdata =  $apitwitter->getTweetsArray($json);
         echo json_encode($rawdata);
 
