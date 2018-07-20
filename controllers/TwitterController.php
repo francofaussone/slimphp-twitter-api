@@ -26,13 +26,14 @@
         public function getTweetsArray($jsonraw){
             $rawdata = "";
     
-            $json = json_decode($jsonraw);
+            $json = json_decode($jsonraw, true);
             $jsonItems = count($json);
                 
-            if(array_key_exists('errors', $json)){
+            if(isset( $json['errors'] )){
                 return '{"message": {"text":"there is no data with that user"}';
             }
             else{
+                $json = json_decode($jsonraw);
                 for($i=0; $i<$jsonItems; $i++){
                     $user = $json[$i];
                     $dateTweet = $user->created_at;
