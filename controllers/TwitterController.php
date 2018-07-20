@@ -28,12 +28,11 @@
     
             $json = json_decode($jsonraw);
             $jsonItems = count($json);
-            
-            if(empty($jsonItems)){
+                
+            if(array_key_exists('errors', $json)){
                 return '{"message": {"text":"there is no data with that user"}';
             }
             else{
-
                 for($i=0; $i<$jsonItems; $i++){
                     $user = $json[$i];
                     $dateTweet = $user->created_at;
@@ -51,7 +50,6 @@
                     }   
                 }
                 return $rawdata;
-
             }
         }
     }
